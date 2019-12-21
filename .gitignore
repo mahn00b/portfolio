@@ -1,0 +1,14 @@
+# package-lock
+package-lock.json
+
+# .env files
+*.env
+
+# Dependency directories
+node_modules/
+
+# next.js build output
+.next
+
+# production server output
+dist
