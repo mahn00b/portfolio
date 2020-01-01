@@ -18,14 +18,8 @@ export default class SideNav extends Component<any, any> {
     render() {
         const {
           bg = "#131516",
-          links = [
-            ["home", "/"],
-            ["About", "/"]
-          ],
-          socials = [
-            ["instagram", "myousif1"],
-            ["facebook", "mahmoud.yousif.902"]
-          ]
+        links,
+        socials
         } = this.props;
 
         const {
@@ -46,7 +40,7 @@ export default class SideNav extends Component<any, any> {
               }}
             >
               <Container
-                absolute
+                fixed
                 top-1
                 right-1
                 white

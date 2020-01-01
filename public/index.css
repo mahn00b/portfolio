@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Oswald|Raleway&display=swap');
-
+@import url('https://fonts.googleapis.com/css?family=Oswald:300,400,500,600|Raleway:200,300,400,500,700&display=swap');
 
 /* Root */
 
@@ -58,3 +57,60 @@ a {
 }
 
 /* ./nav */
+
+/* animations */
+
+.magictext {
+  opacity: 0;
+  animation: magictext .7s ease-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes magictext {
+    0% {
+      transform: translateY(-50%);
+      opacity: 0
+    }
+
+    25% {
+      transform: translateY(-40%);
+      opacity: .25
+    }
+    50% {
+      transform: translateY(-30%);
+      opacity: .5
+    }
+    75% {
+      transform: translateY(-20%);
+      opacity: .75
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1
+    }
+}
+
+.wiggle {
+  animation: wiggle 1s ease-in-out;
+  animation-delay: .2s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: backwards;
+}
+
+
+@keyframes wiggle {
+  0%{
+    transform: rotate(-30deg)
+  }
+
+  50% {
+    transform: rotate(30deg)
+  }
+
+  100% {
+    transform: rotate(-30deg)
+  }
+}
+
+/* ./animations */
+
