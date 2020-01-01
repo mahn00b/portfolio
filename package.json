@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "nodemon",
-    "build": "next build && tsc --project tsconfig.server.json",
+    "build": "next build && tsc --project tsconfig.json",
     "start": "cross-env NODE_ENV=production node dist/index.js"
   },
   "dependencies": {
@@ -16,17 +16,19 @@
     "next-typed-css": "^1.1.0",
     "postcss-css-variables": "^0.13.0",
     "postcss-loader": "^3.0.0",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "tachyons": "^4.11.1"
   },
   "devDependencies": {
-    "@types/node": "^12.0.12",
-    "@types/react": "^16.8.17",
-    "@types/react-dom": "16.8.4",
+    "@types/classnames": "^2.2.9",
+    "@types/node": "^12.12.21",
+    "@types/react": "^16.9.17",
+    "@types/react-dom": "^16.8.4",
+    "classnames": "^2.2.6",
     "cross-env": "^5.2.0",
     "nodemon": "^1.19.0",
-    "ts-node": "^8.1.0",
-    "typescript": "^3.4.5"
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.4"
   }
 }
