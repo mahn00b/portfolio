@@ -6,6 +6,7 @@ import bg from '../public/bg.jpg'
 import hh from '../public/hh_screenshot.png'
 import postin from "../public/postin.png";
 import me from '../public/mahmoud.jpg'
+import logo from '../public/logo-transparent.png'
 import '../public/index.css'
 
 const SOCIALS = [
@@ -64,9 +65,12 @@ const PageHeader = () => (
         zIndex:'30'
       }}
     >
+      <Container className="magictext" w3 relative style={{top: '20%', left:'10%'}}>
+        <Image src={logo}  />
+      </Container>
       <Container f2 w-100 w-60-ns center relative style={{ left: '10%', lineHeight: '3rem', top: '25%'}}>
-        <Container mr2 className="magictext">
-          Hey <Container dib className="wiggle">👋🏾</Container>
+        <Container mr2 className="magictext" style={{animationDelay:'.15s'}}>
+          Hey <Container dib className="wave">👋🏾</Container>
         </Container>
         <Container mr2 dib className="magictext" style={{animationDelay:'.25s'}}>my</Container>
         <Container  dib className="magictext" style={{animationDelay:'.35s'}}>name</Container>
@@ -78,7 +82,7 @@ const PageHeader = () => (
         <Container dib className="magictext" style={{animationDelay:'.75s'}}>a</Container>
         <br />
         <Container f1 fw5 mr2 dib mt5 className="magictext" style={{animationDelay:'.85s'}}>Full-Stack</Container>
-        <Container f1 fw5 dib className="magictext" style={{animationDelay:'.95s'}}>Engineer</Container>
+        <Container f1 fw5 dib className="magictext" style={{animationDelay:'.95s'}}>Developer</Container>
       </Container>
     </Container>
     <Image

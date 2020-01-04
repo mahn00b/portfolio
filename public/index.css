@@ -112,25 +112,25 @@ a {
     }
 }
 
-.wiggle {
-  animation: wiggle 1s ease-in-out;
+.wave {
+  animation: wave 1s ease-in-out;
   animation-delay: .2s;
-  animation-iteration-count: infinite;
-  animation-fill-mode: backwards;
+  animation-iteration-count: 7;
+  animation-fill-mode: forwards;
 }
 
 
-@keyframes wiggle {
+@keyframes wave {
   0%{
-    transform: rotate(-30deg)
+    transform: rotate(15deg)
   }
 
   50% {
-    transform: rotate(30deg)
+    transform: rotate(-15deg)
   }
 
   100% {
-    transform: rotate(-30deg)
+    transform: rotate(15deg)
   }
 }
 
