@@ -32,6 +32,7 @@ export default class SideNav extends Component<any, any> {
             <Container
               fixed
               absolute--fill
+              dn-ns
               style={{
                 background: "rgba(0,0,0,.8)",
                 zIndex: "1000",
@@ -67,7 +68,7 @@ export default class SideNav extends Component<any, any> {
                   <Container w-100>
                     <Logo title="Mahmoud Yousif" />
                   </Container>
-                  <Container mb5>
+                  <Container mb5 onClick={() => this.toggle()}>
                     {links.map((e: any) => (
                       <NavItem title={e[0]} location={e[1]} />
                     ))}
