@@ -13,6 +13,7 @@ export const Nav = component<React.HTMLAttributes<HTMLDivElement>>('nav')
 export const Section = component<React.HTMLAttributes<HTMLDivElement>>('section')
 export const Header = component<React.HTMLAttributes<HTMLDivElement>>('header');
 export const A = component<React.HTMLAttributes<HTMLDivElement>>("a");
+export const Footer = component<React.HTMLAttributes<HTMLDivElement>>("Footer");
 
 export function component<P>(
     Component:

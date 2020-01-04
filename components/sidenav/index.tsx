@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Container, Nav, Image, A } from '../'
-import { SocialLink } from '../social'
+import { SocialGrid } from '../social'
 import react_logo from '../../public/react.png'
 
 
@@ -29,7 +29,7 @@ export default class SideNav extends Component<any, any> {
         return (
           <Container>
             <Container
-              absolute
+              fixed
               absolute--fill
               style={{
                 background: "rgba(0,0,0,.8)",
@@ -72,11 +72,7 @@ export default class SideNav extends Component<any, any> {
                     ))}
                   </Container>
                   <Container relative w-100 db style={{ top: "0rem" }}>
-                    <Container flex justify-center flex-row nowrap>
-                      {socials.map((e: any) =>
-                        <SocialLink white mh2 user={e[1]} social={e[0]} />
-                      )}
-                    </Container>
+                      <SocialGrid socials={socials}  />
                   </Container>
                 </Container>
               </Nav>

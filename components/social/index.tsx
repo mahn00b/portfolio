@@ -34,3 +34,11 @@ export const SocialLink = (props: any) => {
     </A>
   );
 };
+
+export const SocialGrid = (props: any) =>
+    props.socials ?
+    (<Container flex justify-center flex-row nowrap>
+        {props.socials.map((e: any) =>
+        <SocialLink white mh2 user={e[1]} social={e[0]} />
+        )}
+    </Container> ): (<Container></Container>)

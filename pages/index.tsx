@@ -1,10 +1,18 @@
 import React, { Component, useState } from 'react'
 import { Container, Header, Section, Image, A } from '../components'
+import { SocialGrid } from '../components/social/'
 import SideNav from '../components/sidenav'
 import bg from '../public/bg.jpg'
 import hh from '../public/hh_screenshot.png'
 import postin from "../public/postin.png";
+import me from '../public/mahmoud.jpg'
 import '../public/index.css'
+
+const SOCIALS = [
+  ["instagram", "myousif1"],
+  ["facebook", "mahmoud.yousif.902"],
+  ["github", "mahn00b"]
+]
 
 
 export default class Home extends Component<any, any> {
@@ -12,26 +20,28 @@ export default class Home extends Component<any, any> {
 
     render() {
         return (
-          <Container>
+          <Container overflow-x-hidden overflow-y-hidden>
             <SideNav
               links={[
                 ["Skills", "#skills"],
                 ["Portfolio", "#work"],
                 ["About", "#about"]
               ]}
-              socials={[
-                ["instagram", "myousif1"],
-                ["facebook", "mahmoud.yousif.902"],
-                ["github", "mahn00b"]
-              ]}
+              socials={SOCIALS}
             />
-            <Container overflow-scroll style={{ fontFamily: "Oswald" }}>
+            <Container className="page-wrapper" style={{ fontFamily: "Oswald"}}>
               <Container relative w-100 vh-100>
                 <PageHeader />
               </Container>
-              <Section w-100 vh-100>
-                <Portfolio />
+              <Section flex flex-row nowrap w-100 vh-100 justify-between>
+                <Container style={{ flexBasis: "%" }}>
+                  <Portfolio />
+                </Container>
               </Section>
+              <Section w-100 vh-100>
+                <AboutMe />
+              </Section>
+              <PageFooter />
             </Container>
           </Container>
         );
@@ -45,14 +55,16 @@ const PageHeader = () => (
       w-100
       h-100
       white
+      relative
       f1
       pl5
       style={{
         fontFamily: "Raleway",
-        background: "rgba(0,0,0,0.7)"
+        background: "rgba(0,0,0,0.7)",
+        zIndex:'30'
       }}
     >
-      <Container f2 w-100 w-60-ns center relative style={{ left: '10%', lineHeight: '3rem', top: '25%' }}>
+      <Container f2 w-100 w-60-ns center relative style={{ left: '10%', lineHeight: '3rem', top: '25%'}}>
         <Container mr2 className="magictext">
           Hey <Container dib className="wiggle">👋🏾</Container>
         </Container>
@@ -75,17 +87,17 @@ const PageHeader = () => (
       h-100
       w-100
       src={bg}
-      style={{ objectFit: "cover", zIndex: "-3" }}
+      style={{ objectFit: "cover", zIndex: "0" }}
     />
   </Header>
 );
 
 const Portfolio = () => (
   <Container w-100 h-100>
-    <Container tc f1 mv3 relative top-1>
+    <Container tc f1 mv3 relative top-1 className="magictext">
       My Recent Work
     </Container>
-    <Container flex flex-row flex-wrap top-2 relative>
+    <Container w-100 center flex flex-row flex-wrap top-2 relative justify-center>
       {[
         [
           "https://hautehijab.com",
@@ -100,7 +112,7 @@ const Portfolio = () => (
           "An application i'm developing with a team as a side-project"
         ]
       ].map(e => (
-        <Container mv4>
+        <Container mv4 mh3-ns className="portfolio-grid-item">
           <PortfolioItem
             link={e[0]}
             title={e[1]}
@@ -118,15 +130,17 @@ function PortfolioItem (props: any) {
     const [clicked, setClicked] = useState(false)
 
   return (
-  <Container relative w-100 w-60 center onClick={() => setClicked(!clicked)}>
+  <Container relative w-100 center onClick={() => setClicked(!clicked)}>
     <Image w-100 h-100 src={props.image} />
     <Container
+        className="portfolio-item-info"
       absolute
       absolute--fill
+      ph3
       style={{
         fontFamily: "Raleway",
         background: "rgba(0,0,0,0.9)",
-        transition: 'all .35s ease-in',
+        transition: 'all .35s ease-out',
         width: clicked ? '100%' : '0',
         opacity: clicked ? '1' : '0'
       }}
@@ -142,3 +156,51 @@ function PortfolioItem (props: any) {
     </Container>
   </Container>)
 };
+
+const AboutMe = () => (
+  <Container center ph3 pv4>
+    <Container tc f1 mv3 relative top-1 className="magictext">
+      About Me
+    </Container>
+    <Container className="roll-in active" relative mt5 w4 center>
+      <Image
+        center
+        src={me}
+        style={{ border: "5px solid #131516", borderRadius: "50%" }}
+      />
+    </Container>
+    <Container mt4 f4 fw3 ph3 justify center  style={{ lineHeight: "2rem" }}>
+      <Container>
+        <Container f3 fw5 dib>Who am i?</Container> Just an Engineer who’s trying to live
+        life to the fullest. Unfortunately, that requires quite a lot of
+        money...
+      </Container>
+      <Container mt5>
+        <Container f3 fw5 dib>What do I do?</Container> I’m an Engineer who loves to work on complicated problems.
+        Let’s work together to solve your complicated problems. For a reasonable
+        fee of course...
+      </Container>
+    </Container>
+  </Container>
+);
+
+
+const PageFooter = () => (
+  <Container
+    absoulte
+    dn-ns
+    bottom-0
+    w-100
+    pa3
+    style={{ background: "#131516" }}
+  >
+    <Container flex flex-column flex-wrap>
+      <Container>
+        <SocialGrid socials={SOCIALS} />
+      </Container>
+      <Container center mv3 f7 fw2 style={{fontFamily: 'Oswald', letterSpacing: '.8px'}}>
+        Copyright © {new Date().getFullYear()} Mahmoud Yousif • NYC based
+      </Container>
+    </Container>
+  </Container>
+);
