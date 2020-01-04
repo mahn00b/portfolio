@@ -112,61 +112,37 @@ a {
     }
 }
 
-.wiggle {
-  animation: wiggle 1s ease-in-out;
+.wave {
+  animation: wave 1s ease-in-out;
   animation-delay: .2s;
-  animation-iteration-count: infinite;
-  animation-fill-mode: backwards;
+  animation-iteration-count: 7;
+  animation-fill-mode: forwards;
 }
 
 
-@keyframes wiggle {
+@keyframes wave {
   0%{
-    transform: rotate(-30deg)
+    transform: rotate(15deg)
   }
 
   50% {
-    transform: rotate(30deg)
+    transform: rotate(-15deg)
   }
 
   100% {
-    transform: rotate(-30deg)
+    transform: rotate(15deg)
   }
 }
 
 .roll-in {
- right:60%;
- transition: all 1s ease-out;
-}
-
-.roll-in.active {
-  right:0;
-  transform: rotate(360deg)
+  animation: roll-in 1s ease-out;
+  animation-fill-mode: forwards;
 }
 
 @keyframes roll-in {
   0% {
     right: 60%;
     transform: rotate(36deg);
-  }
-
-  10% {
-
-  }
-
-  20% {
-    right: 45%;
-    transform: rotate(144deg);
-  }
-
-  50% {
-    right: 30%;
-    transform: rotate(216deg);
-  }
-
-  75% {
-    right: 15%;
-    transform: rotate(288deg);
   }
 
   100% {

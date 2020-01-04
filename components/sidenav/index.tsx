@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Container, Nav, Image, A } from '../'
 import { SocialGrid } from '../social'
-import react_logo from '../../public/react.png'
+// import react_logo from '../../public/react.png'
+import logot from '../../public/logo-transparent.png'
 
 
 export default class SideNav extends Component<any, any> {
@@ -31,6 +32,7 @@ export default class SideNav extends Component<any, any> {
             <Container
               fixed
               absolute--fill
+              dn-ns
               style={{
                 background: "rgba(0,0,0,.8)",
                 zIndex: "1000",
@@ -66,7 +68,7 @@ export default class SideNav extends Component<any, any> {
                   <Container w-100>
                     <Logo title="Mahmoud Yousif" />
                   </Container>
-                  <Container mb5>
+                  <Container mb5 onClick={() => this.toggle()}>
                     {links.map((e: any) => (
                       <NavItem title={e[0]} location={e[1]} />
                     ))}
@@ -84,10 +86,15 @@ export default class SideNav extends Component<any, any> {
               white
               top-0
               flex
+              flex-row
+              justify-between
               pa3
               style={{ backgroundColor: bg, zIndex: "100" }}
             >
-              <i className="fas fa-bars" onClick={() => this.toggle()}></i>
+              <i className="fas fa-bars" onClick={() => this.toggle()} style={{fontSize: '2.1rem'}}></i>
+              <Container style={{width: '40px'}}>
+                <Image src={logot} />
+              </Container>
             </Container>
           </Container>
         );
@@ -97,11 +104,10 @@ export default class SideNav extends Component<any, any> {
 const Logo = (props: any) => (
     <Container w-100 h-100 >
         <Image
-            w2
-            h2
+            w3
             relative
-            src={props.image || react_logo}
-            style={{ top: ".35rem" }}
+            src={props.image || logot}
+            style={{ top: "1.3rem" }}
         />
         {props.title && (
             <Container ml3 relative dib white f3 style={{ fontFamily: 'Raleway' }}>

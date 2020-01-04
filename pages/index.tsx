@@ -6,6 +6,8 @@ import bg from '../public/bg.jpg'
 import hh from '../public/hh_screenshot.png'
 import postin from "../public/postin.png";
 import me from '../public/mahmoud.jpg'
+import logo from '../public/logo-transparent.png'
+import LazyLoad from 'react-lazyload'
 import '../public/index.css'
 
 const SOCIALS = [
@@ -13,7 +15,6 @@ const SOCIALS = [
   ["facebook", "mahmoud.yousif.902"],
   ["github", "mahn00b"]
 ]
-
 
 export default class Home extends Component<any, any> {
 
@@ -23,23 +24,39 @@ export default class Home extends Component<any, any> {
           <Container overflow-x-hidden overflow-y-hidden>
             <SideNav
               links={[
-                ["Skills", "#skills"],
                 ["Portfolio", "#work"],
-                ["About", "#about"]
+                ["About", "#about"],
+                ["Contact Me", "mailto:myousif123@gmail.com"]
               ]}
               socials={SOCIALS}
             />
-            <Container className="page-wrapper" style={{ fontFamily: "Oswald"}}>
+            <Container
+              className="page-wrapper"
+              style={{ fontFamily: "Oswald" }}
+            >
               <Container relative w-100 vh-100>
                 <PageHeader />
               </Container>
-              <Section flex flex-row nowrap w-100 vh-100 justify-between>
-                <Container style={{ flexBasis: "%" }}>
-                  <Portfolio />
+              <Section
+                id="work"
+                flex
+                flex-row
+                nowrap
+                w-100
+                justify-between
+                pt4
+                style={{ height: "90vh" }}
+              >
+                <Container>
+                  <LazyLoad offset={100}>
+                    <Portfolio />
+                  </LazyLoad>
                 </Container>
               </Section>
-              <Section w-100 vh-100>
-                <AboutMe />
+              <Section id="about" pt4 w-100 vh-100>
+                <LazyLoad >
+                  <AboutMe />
+                </LazyLoad>
               </Section>
               <PageFooter />
             </Container>
@@ -64,9 +81,12 @@ const PageHeader = () => (
         zIndex:'30'
       }}
     >
+      <Container className="magictext" w3 w-60-ns center-ns relative style={{top: '20%', left:'10%'}}>
+        <Image w3 src={logo}  />
+      </Container>
       <Container f2 w-100 w-60-ns center relative style={{ left: '10%', lineHeight: '3rem', top: '25%'}}>
-        <Container mr2 className="magictext">
-          Hey <Container dib className="wiggle">👋🏾</Container>
+        <Container mr2 className="magictext" style={{animationDelay:'.15s'}}>
+          Hey <Container dib className="wave">👋🏾</Container>
         </Container>
         <Container mr2 dib className="magictext" style={{animationDelay:'.25s'}}>my</Container>
         <Container  dib className="magictext" style={{animationDelay:'.35s'}}>name</Container>
@@ -78,7 +98,7 @@ const PageHeader = () => (
         <Container dib className="magictext" style={{animationDelay:'.75s'}}>a</Container>
         <br />
         <Container f1 fw5 mr2 dib mt5 className="magictext" style={{animationDelay:'.85s'}}>Full-Stack</Container>
-        <Container f1 fw5 dib className="magictext" style={{animationDelay:'.95s'}}>Engineer</Container>
+        <Container f1 fw5 dib className="magictext" style={{animationDelay:'.95s'}}>Developer</Container>
       </Container>
     </Container>
     <Image
@@ -112,7 +132,7 @@ const Portfolio = () => (
           "An application i'm developing with a team as a side-project"
         ]
       ].map(e => (
-        <Container mv4 mh3-ns className="portfolio-grid-item">
+        <Container mv4 mh4 className="portfolio-grid-item">
           <PortfolioItem
             link={e[0]}
             title={e[1]}
@@ -157,32 +177,48 @@ function PortfolioItem (props: any) {
   </Container>)
 };
 
-const AboutMe = () => (
-  <Container center ph3 pv4>
-    <Container tc f1 mv3 relative top-1 className="magictext">
-      About Me
-    </Container>
-    <Container className="roll-in active" relative mt5 w4 center>
-      <Image
+function AboutMe() {
+  return (
+    <Container center ph3 pv4>
+      <Container tc f1 mv3 relative top-1 className="magictext">
+        About Me
+      </Container>
+        <Container className="roll-in" relative mt5 w4 center>
+          <Image
+            center
+            src={me}
+            style={{ border: "5px solid #131516", borderRadius: "50%" }}
+          />
+        </Container>
+      <Container
+        mt4
+        f4
+        fw3
+        ph3
+        justify
         center
-        src={me}
-        style={{ border: "5px solid #131516", borderRadius: "50%" }}
-      />
-    </Container>
-    <Container mt4 f4 fw3 ph3 justify center  style={{ lineHeight: "2rem" }}>
-      <Container>
-        <Container f3 fw5 dib>Who am i?</Container> Just an Engineer who’s trying to live
-        life to the fullest. Unfortunately, that requires quite a lot of
-        money...
+        w-60-ns
+        style={{ lineHeight: "2rem" }}
+      >
+        <Container>
+          <Container f3 fw5 dib>
+            Who am i?
+          </Container>{" "}
+          Just an Engineer who’s trying to live life to the fullest.
+          Unfortunately, that requires quite a lot of money...
+        </Container>
+        <Container mt5>
+          <Container f3 fw5 dib>
+            What do I do?
+          </Container>{" "}
+          I’m an Engineer who loves to work on complicated problems. Let’s work
+          together to solve your complicated problems. For a reasonable fee of
+          course...
+        </Container>
       </Container>
-      <Container mt5>
-        <Container f3 fw5 dib>What do I do?</Container> I’m an Engineer who loves to work on complicated problems.
-        Let’s work together to solve your complicated problems. For a reasonable
-        fee of course...
-      </Container>
     </Container>
-  </Container>
-);
+  );
+}
 
 
 const PageFooter = () => (
