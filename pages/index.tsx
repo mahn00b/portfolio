@@ -204,16 +204,15 @@ function AboutMe() {
           <Container f3 fw5 dib>
             Who am i?
           </Container>{" "}
-          Just an Engineer who’s trying to live life to the fullest.
-          Unfortunately, that requires quite a lot of money...
+          Just an Engineer who’s trying to live life to the fullest,
+          and learn as much as he can on the way!
         </Container>
         <Container mt5>
           <Container f3 fw5 dib>
             What do I do?
           </Container>{" "}
-          I’m an Engineer who loves to work on complicated problems. Let’s work
-          together to solve your complicated problems. For a reasonable fee of
-          course...
+          I’m an Engineer who loves to work on challenging problems that really
+          teach me new things and grow my skill set.
         </Container>
       </Container>
     </Container>
