@@ -7,7 +7,15 @@
       "presets": ["next/babel"]
     },
     "test": {
-      "presets": [["next/babel", { "preset-env": { "modules": "commonjs" } }]]
+      "presets": [
+        "@babel/preset-env",
+        "@babel/react",
+        "@babel/preset-typescript",
+        "next/babel"
+      ],
+      "plugins": [
+        "react-require"
+      ]
     }
   }
 }
