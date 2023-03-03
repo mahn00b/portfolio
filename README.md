@@ -1,1 +1,0 @@
-# Next Typescript Boilerplate Project
